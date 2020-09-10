@@ -11,11 +11,6 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (user, done) {
-	/*
-    Instead of user this function usually recives the id 
-    then you use the id to select the user from the db and pass the user obj to the done callback
-    PS: You can later access this data in any routes in: req.user
-    */
 	done(null, user);
 });
 
@@ -27,11 +22,6 @@ passport.use(
 			callbackURL: "http://localhost:7000/google/callback",
 		},
 		function (accessToken, refreshToken, profile, done) {
-			/*
-     use the profile info (mainly profile id) to check if the user is registerd in ur db
-     If yes select the user and pass him to the done callback
-     If not create the user and then select him and pass to callback
-    */
 			return done(null, profile);
 		}
 	)
