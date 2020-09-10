@@ -2,11 +2,6 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 passport.serializeUser(function (user, done) {
-	/*
-    From the user take just the id (to minimize the cookie size) and just pass the id of the user
-    to the done callback
-    PS: You dont have to do it like this its just usually done like this
-    */
 	done(null, user);
 });
 
